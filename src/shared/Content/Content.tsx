@@ -10,7 +10,6 @@ import { userContext } from '../context/userDataContext';
 
 let first:any = null
 const listCard = cardList 
-console.log('listCard', listCard)
 
 export function Content() {
   const { data, setData }= useContext(userContext)
@@ -29,7 +28,6 @@ export function Content() {
   const [suit, setSuit] = useState('')
  
   useEffect(() => {
-    console.log('>>>>>>>>>>>', suit, deck, gameList, '\n', gamerCards, '\n', computerCards, modal, move, temp, continued, covered)
     if (winner!=='' && modal==='winner') {
       setTimeout(() => gameAgain(listCard.slice(0).sort(() => Math.random() - 0.5)), 2000)
     }
@@ -62,7 +60,6 @@ export function Content() {
       else {mashineMove(moveCards, computerCards, suit, deck)}
     }
     else if (move==='mashine' && covered==='yes' && temp.length>0 && gamerCards.length>0) {
-      console.log('>>>>>>>>covered && temp.length>0', covered, )
       moveCards()
     }
     else if(move==='mashine' && covered==='yes' && (temp.length===0 || gamerCards.length===0)) {
@@ -361,7 +358,6 @@ export function Content() {
     }
     
     else {
-      console.log('else!!!!!!!!!!!!!!!!!!')
       setTimeout(() => {
         setComputerCards(prevState => sortCards([card, ...gameList, ...prevState], suit))
         setGameList(oldArray => oldArray.slice(0, 0))
