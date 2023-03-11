@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     max-width: 100%;
-    background: url('../../img/FiledForGame.webp');
+    background: url('../../../img/FiledForGame.webp');
     background-size: cover;
     opacity: .8;
     flex-direction: column; 
