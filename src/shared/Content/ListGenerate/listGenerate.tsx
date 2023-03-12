@@ -4,12 +4,12 @@ import { Diamond, OfClubs, OfHearts, OfSpades } from "../../Icons";
 import { TypeDeck, TypeDeckItems } from "../../../GamePlay/cardsDeck";
 import styles from './listGenerate.css';
 
-export const getSuitComponent = (suitMy:string, width?:number, height?:number) => {
+export const getSuitComponent = (suitMy:string) => {
   switch (suitMy) {
-    case  "ofHearts": return <OfHearts width={width} height={height} />
-    case  "ofClubs": return <OfClubs width={width} height={height} />
-    case  "ofSpades": return <OfSpades width={width} height={height} />
-    default: return <Diamond width={width} height={height} />      
+    case  "ofHearts": return <OfHearts />
+    case  "ofClubs": return <OfClubs />
+    case  "ofSpades": return <OfSpades />
+    default: return <Diamond />      
   }
 } 
 interface IListGenerate {
@@ -48,16 +48,16 @@ export const ListGenerate = ({ulStyle, list, classStyle, funcItems, shadow=false
               {}}>
               <Field flag={flag} value={list[index].value.valueMain} shadow={shadow}>
                 <div className={!flag ? styles.cardContent : styles.cardContentActive}><div className={styles.value}><span className={styles.valueMain}>{list[index].value.valueMain}</span>
-                  <div className={styles.imageSmall}>{getSuitComponent(list[index].suit, 28, 28)}</div>
+                  <div className={styles.imageSmall}>{getSuitComponent(list[index].suit)}</div>
                   </div><div className={styles.cardSuit}>
                   {list[index].value.basicMeaning>10 ? <div className={styles.image}>{getSuitComponent(list[index].suit)}</div> :
                   <div className={styles.plentyOfImage}>
                     {arr.slice(0, 2).map(() => 
                     <div key={Math.random().toString(36).substring(2, 15)} className={styles.plentyOfImageSmall}>{arr.map(() => 
-                      <div key={Math.random().toString(36).substring(2, 15)}>{getSuitComponent(list[index].suit, 36, 36)}</div>)}</div>)}
+                      <div key={Math.random().toString(36).substring(2, 15)} className={styles.plenty}>{getSuitComponent(list[index].suit)}</div>)}</div>)}
                     </div>
                   }</div><div className={styles.valueDown}>
-                  <span className={styles.valueMain}>{list[index].value.valueMain}</span><div className={styles.imageSmall}>{getSuitComponent(list[index].suit, 28, 28)}</div></div>
+                  <span className={styles.valueMain}>{list[index].value.valueMain}</span><div className={styles.imageSmall}>{getSuitComponent(list[index].suit)}</div></div>
                 </div>
               </Field>
       </li>)}

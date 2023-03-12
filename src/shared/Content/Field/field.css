@@ -8,9 +8,20 @@
 }
 .field {
     background-image: url('../../../img/card.webp');
-    background-size:contain;
+    background-size: contain;
 }
 .active {
     background-color: #fff;
 }
-
+@media all and (max-width:1350px) {
+    .field, .active {
+        width: 130px;
+        height: 190px; 
+    }
+}
+@media all and (max-width:750px) {
+    .field, .active {
+        width: 99px;
+        height: 148px; 
+    }
+}

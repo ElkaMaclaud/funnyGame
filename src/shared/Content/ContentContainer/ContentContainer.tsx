@@ -98,13 +98,9 @@ export function ContentContainer(
           </div> 
     }
     </div> 
-        {(gamerCards.length>0 && gamerCards.length<7) && <ListGenerate ulStyle={styles.gamers} list={gamerCards} 
+        {gamerCards.length>0 && <ListGenerate ulStyle={styles.gamers} list={gamerCards} 
         classStyle={styles.cards} funcItems={gamerMove} 
             flag={true} />} 
-          {(gamerCards.length>0 && gamerCards.length>=7) && <ListGenerate ulStyle={styles.gamersNoMargin} list={gamerCards} 
-          classStyle={styles.cards} funcItems={gamerMove} 
-            cards={true} noMargin={true} flag={true} />
-          }
 </div>
   );
 }

@@ -8,6 +8,7 @@
     background-size: cover;
     opacity: .8;
     flex-direction: column; 
+    overflow-y: scroll;
 }
 .contentGame {
     top: 2%;
@@ -45,16 +46,6 @@
 .fieldGame {
     width: 100%;
     height: 100%;
-}
-@keyframes emergence {
-    from {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
 .gameField:hover .nonCards {
     display: block;
@@ -169,6 +160,9 @@
     flex-direction: row;
     flex-wrap: nowrap;
 }
+.gamers:last-child {
+    flex-wrap: wrap;
+}
 .gamersNoMargin {
     position: relative;
     justify-content: start;
@@ -181,9 +175,82 @@
     height: 280px;
     position: relative;
 }
-/* .card {
-    animation: emergence 300ms ease-in-out backwards;
-} */
 .gamersNoMargin .cards {
     position: absolute;
+}
+@media all and (max-width:1350px) {
+    .contentGame {
+        padding: 0 .6rem;
+    }
+    .gameField {
+        padding: 0 .2rem;
+     }
+    .text {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+    .fieldGame {
+        width: 100%;
+        height: 100%;
+    }
+    .nonCards {
+        display: block;
+        width: 60%;
+        height: 60%;
+        top: 5%;
+    }
+    .button, .button2, .buttonGame, .buttonGameFin {
+        display: block;
+        font-size: 1rem;
+        width: 100%;
+        padding: 2rem;
+        top: 30%;
+    }
+    .button, .button2 {
+        padding:.8rem 2rem; 
+        width: 80%;
+        top: -10%;
+    }
+    .button:active, .buttonGame:active, .buttonGameFin:active, .button2:active {
+        transform: translateY(-5px);
+    }
+    .trump {
+        width: 150px;
+        height: 120px;
+    }
+    .gamers:first-child, .gamersNoMargin:first-child  {
+        padding: 0 .5rem;
+        overflow-x: hidden;   
+    }
+    .gamers:last-child, .gamersNoMargin:last-child  {
+        padding: 0 .5rem;
+    }
+    .cards {
+        width: 130px;
+        height: 190px; 
+    }
+    .card, .card2 {
+        width: 136px;
+        height: 190px; 
+    }
+
+}
+@media all and (max-width:750px) {
+    .trump {
+        width: 150px;
+        height: 120px;
+    }
+    .gamers:last-child, .gamersNoMargin:last-child  {
+        padding: 0 .5rem;
+        height: 33%;
+        flex-wrap: wrap;
+    }
+    .cards {
+        width: 99px;
+        height: 148px; 
+    }
+    .card, .card2 {
+        width: 109px;
+        height: 148px; 
+    }
 }

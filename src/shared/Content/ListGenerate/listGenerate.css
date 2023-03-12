@@ -18,7 +18,7 @@
     opacity: 1;
 }
 .value, .valueDown {
-    width: 45%;
+    width: 43%;
     justify-content: center;
     position: relative;
     align-items: center;
@@ -38,6 +38,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.plenty svg {
+   width: 36pt; 
+   height: 36pt;
 }
 .valueDown {
     align-self: end;
@@ -65,10 +69,93 @@
     position: absolute;
 }
 .imageSmall {
-    padding-right: .7rem;
+    padding-left: .1rem;
     top: 90%;
     left: 2%;
     position: absolute;
-    height: 3rem;
-    width: 3rem;
+}
+.imageSmall svg {
+    height: 28pt;
+    width: 28pt;
+}
+@media all and (max-width: 1350px) {
+    .value, .valueDown {
+        width: 19%;
+        justify-content: center;
+        position: relative;
+        align-items: center;
+    }
+    .valueMain {
+        height: 2rem;
+        width: 1rem;
+        font-size: 1.2rem;
+    }
+    .value {
+        align-self: start;
+    }
+    .plenty svg {
+        width: 25pt; 
+        height: 25pt;
+     }
+     .image svg {
+        width: 70pt;
+        height: 70pt;
+    }
+    .cardSuit {
+        position: relative;
+        min-height: 188px;
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items:  space-between;
+    }
+    .plentyOfImage {
+        position: relative;
+        min-height: inherit;
+        width: 100%;
+    }
+    .plentyOfImageSmall {
+        position: relative;
+        min-height: inherit;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between;
+    }
+    .imageSmall svg {
+        height: 18pt;
+        width: 18pt;
+    }
+}
+@media all and (max-width:750px) {
+    .valueMain {
+        height: 1.5rem;
+        width: .8rem;
+        font-size: .8rem;
+    }
+    .plenty svg {
+        width: 17pt; 
+        height: 17pt;
+     }
+    .image svg {
+        width: 60pt;
+        height: 60pt;
+    }
+    .cardSuit {
+        position: relative;
+        min-height: 146px;
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items:  space-between;
+    }
+    .plentyOfImage {
+        position: relative;
+        min-height: inherit;
+        width: 100%;
+    }
+    .imageSmall svg {
+        height: 13pt;
+        width: 13pt;
+    }
 }

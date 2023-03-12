@@ -43,7 +43,7 @@ export function Modal({text, timer=null, height}: IModal) {
     setName(event.target.value)
   }
   return ReactDOM.createPortal((
-    <div className={active ? timer!==null ? styles.modal : styles.modalForm : styles.modalFalse} ref={ref} style={{height: `${height}vh`}}>
+    <div className={active ? timer!==null ? styles.modal : styles.modalForm : styles.modalFalse} ref={ref} style={{height: `${height}%`}}>
       <h2 className={timer ? styles.h2 : styles.h2Min}>{text}</h2>
       {timer===null && <div className={styles.form}>
           <div className={styles.name}>
