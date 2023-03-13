@@ -201,14 +201,16 @@
     }
     .button, .button2, .buttonGame, .buttonGameFin {
         display: block;
-        font-size: 1rem;
-        width: 100%;
+        font-size: 2rem;
         padding: 2rem;
         top: 30%;
     }
+    .buttonGame, .buttonGameFin {
+        width: 100%;
+    }
     .button, .button2 {
+        width: 40%;
         padding:.8rem 2rem; 
-        width: 80%;
         top: -10%;
     }
     .button:active, .buttonGame:active, .buttonGameFin:active, .button2:active {
