@@ -189,7 +189,7 @@ export function Content() {
       setTimeout(() => 
         {setGamerCards(prevState => sortCards([...prevState, value], suit))
         setGameList(prevState => prevState.filter(item => item!==value))
-      }, 600)
+      }, 900)
       
     }
   }

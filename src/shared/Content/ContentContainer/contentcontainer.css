@@ -238,6 +238,12 @@
 
 }
 @media all and (max-width:750px) {
+    .button, .button2 {
+        font-size: 1.2rem;
+        width: 80%;
+        padding:.8rem 2rem; 
+        top: -10%;
+    }
     .trump {
         width: 150px;
         height: 120px;
