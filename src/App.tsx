@@ -3,16 +3,18 @@ import React from 'react';
 import './main.global.css';
 import { Content } from './shared/Content';
 import { Header } from './shared/Layout/Header';
-import { UserGameProvader } from './shared/context/userGame';
+import { Provider } from 'react-redux';
+import store from './store';
+;
 
 function AppComponent() {
     return (
-        <UserGameProvader>
+        <Provider store={store}>
             <Layout>
                 <Header />
                 <Content />
             </Layout>
-        </UserGameProvader>
+        </Provider>
     );
 }
 export const App = () => <AppComponent />;

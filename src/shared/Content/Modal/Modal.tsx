@@ -1,6 +1,8 @@
-import React, { ChangeEvent, FormEvent, useContext, useLayoutEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, useLayoutEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
-import { userContext } from '../../context/userDataContext';
+import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../../hook';
+import { addUserData } from '../../../store/slice';
 import styles from './modal.css';
 
 interface IModal {
@@ -10,9 +12,9 @@ interface IModal {
 }
 
 export function Modal({text, timer=null, height}: IModal) {
+  const dispatch = useAppDispatch()
   const ref = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState(true)
-  const {data, setData} = useContext(userContext)
   const [name, setName] = useState('')
   const [gender, setGender] = useState('') 
   const node = document.querySelector('#react_modal');
@@ -24,11 +26,11 @@ export function Modal({text, timer=null, height}: IModal) {
   }, [active])
 
     function handleSubmit() {
-    setData({...data, name:name, gender:gender, content:true})
-    function handleClick(event: MouseEvent) {
-      if (event.target instanceof Node && ref.current?.contains(event.target)) {
-        setActive(false);
-      } 
+      dispatch(addUserData([name, gender]))
+      function handleClick(event: MouseEvent) {
+        if (event.target instanceof Node && ref.current?.contains(event.target)) {
+          setActive(false);
+        } 
     }
     document.addEventListener('click', handleClick);
     return () => {
