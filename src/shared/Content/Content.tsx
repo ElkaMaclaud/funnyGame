@@ -10,7 +10,7 @@ let first:any = null
 const listCard = cardList 
 
 export function Content() {
-  const { data, setData }= useContext(userContext)
+  const { data, setData } = useContext(userContext)
   const [modal, setModal] = useState('begin')
   const [winner, setWinner] = useState('')
   const [move, setMove] = useState('')
@@ -35,7 +35,7 @@ export function Content() {
     else if (modal==='begin' && move==='' && deck.length<36) {
       setTimeout(() => {firstMove()}, 1300)
     }
-    else if ((gameList.length>0 && gameList.length%2===0) && (gamerCards.length===0 || computerCards.length===0) && trump.length===0 && deck.length===0) {
+    else if ((gameList.length>0 && gameList.length%2===0) && (gamerCards.length===0 || computerCards.length===0) && trump.length===0 && deck.length===0 && covered!=='false') {
       setTimeout(() => handlClick(false), 700)
     }
     else if ((gamerCards.length===0 || computerCards.length===0) && trump.length===0 && deck.length===0 && gameList.length===0) {
