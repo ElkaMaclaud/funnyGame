@@ -24,6 +24,10 @@ interface IContentProps {
 export function ContentContainer(
   { first, data, modal, winner, move, covered, deck, gamerCards, computerCards, gameList, trump, distribution, gamerMove, raiseCards, handlClick }
     : IContentProps) {
+  function myMap(arr:Array<any>, fn:()=>{}) {
+    console.log(Math.random())
+  }
+  console.log(Math.random() * (deck.length-1))
   return (
     <div className={styles.content}>
     {(computerCards.length>0 && computerCards.length<7) && <ListGenerate ulStyle={styles.gamers} list={computerCards} classStyle={styles.cards} />}
