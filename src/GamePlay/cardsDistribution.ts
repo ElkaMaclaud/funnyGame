@@ -10,12 +10,12 @@ export const cardsDistribution = (gamerCount:number, compCount:number, deck:Type
     }
     let gamer:any[] = []
     let comp:any[] = []
-    if (move==='human') { 
+    if (move === 'human') { 
       const [gamerL, localG] = refill(gamerCount, localDeck, gamer)
       const [compL, localC] = refill(compCount, localG, comp)
       gamer = gamerL; localDeck = localC; comp = compL
     } 
-    else if (move==='mashine') {
+    else if (move === 'mashine') {
       const [compL, localC] = refill(compCount, localDeck, comp)
       const [gamerL, localG] = refill(gamerCount, localC, gamer)
       comp = compL; localDeck =localG; gamer = gamerL
@@ -24,7 +24,7 @@ export const cardsDistribution = (gamerCount:number, compCount:number, deck:Type
 }
 
 const refill = (listCount:number, deck:TypeDeckItems, list:any[]) => {
-  if (listCount<6 && deck.length>0) {
+  if (listCount < 6 && deck.length > 0) {
     while (listCount < 6 && deck.length > 0) {
       list.push(deck.shift())
       listCount++

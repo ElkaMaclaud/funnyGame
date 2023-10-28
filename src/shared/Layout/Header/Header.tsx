@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useAppSelector } from '../../../hook';
 import { getSuitComponent } from '../../Content/ListGenerate';
-import { userContext } from '../../context/userDataContext';
 import styles from './header.css';
 
 export function Header() {
-  const { data, setData } = useContext(userContext)
+  const data = useAppSelector(state => state.user)
   return (
     <header className={styles.header}>
        {data.suit!=='' && 
