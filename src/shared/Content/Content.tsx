@@ -18,7 +18,7 @@ export function Content() {
   const [move, setMove] = useState('')
   const [covered, setCovered] = useState('')
   const [continued, setContinued] = useState(true)
-  const [deck, setDeck] = useState(listCard.slice(0).sort(() => Math.random() - 0.5));
+  const [deck, setDeck] = useState<TypeDeckItems>(() => [...listCard].sort(() => Math.random() - 0.5)); //РАНЬШЕ БЫЛО (listCard.slice(0).sort(() => Math.random() - 0.5))
   const [gamerCards, setGamerCards] = useState<TypeDeckItems>([]);
   const [computerCards, setComputerCards] = useState<TypeDeckItems>([]);
   const [gameList, setGameList] = useState<TypeDeckItems>([]); 
@@ -26,7 +26,6 @@ export function Content() {
   const [temp, setTemp] = useState<TypeDeckItems>([])
   const [gamerTemp, setGamerTemp] = useState<Array<number>>([])
   const [suit, setSuit] = useState('')
- 
   useEffect(() => {
     if (winner!=='' && modal==='winner') {
       setTimeout(() => gameAgain(listCard.slice(0).sort(() => Math.random() - 0.5)), 2000)
@@ -99,7 +98,7 @@ export function Content() {
     setModal('winnerMove')
     setCovered('')
     setSuit('')
-    setDeck(list)
+    setDeck(() => [...list])
     setContinued(true)
     setTemp(prevState => prevState.slice(0, 0))   
   }
@@ -223,10 +222,10 @@ export function Content() {
     setModal('')
     if (trump.length>0) {
       const [localDeck, localTrump, gamer, comp] = cardsDistribution(gamerCards.length, computerCards.length, deck, trump, move)
-      setTrump(localTrump)
+      setTrump(() => [...localTrump])
       setGamerCards(oldArray => sortCards([...oldArray, ...gamer], suit)) 
       setComputerCards(oldArray => sortCards([...oldArray, ...comp], suit))
-      setDeck(localDeck)
+      setDeck(() => [...localDeck])
     }
     strokeTransition()
   } 
@@ -238,14 +237,14 @@ export function Content() {
       gamer.push(localDeck.shift())
       comp.push(localDeck.shift())
     }
-      setDeck(localDeck)
+      setDeck(() => [...localDeck])
       const lineTrump = localDeck[(Math.floor((Math.random() * (deck.length-1))) + 1)]
-      setTrump([lineTrump])
+      setTrump(() => [lineTrump])
       setSuit(lineTrump.suit)
       distatch(addSuitData(lineTrump.suit))
       setDeck(prevState => prevState.filter(obj => obj !== lineTrump))
-      setGamerCards(sortCards(gamer, lineTrump.suit));
-      setComputerCards(sortCards(comp, lineTrump.suit));
+      setGamerCards(() => [...sortCards(gamer, lineTrump.suit)]);
+      setComputerCards(() => [...sortCards(comp, lineTrump.suit)]);
     } 
   function choiceRandom() {
     const list = ['mashine', 'human', 'mashine', 'human', 'mashine', 'human']
